@@ -1,0 +1,101 @@
+# PostureSec – Local Setup Documentation
+
+## Overview
+This repository documents the complete process of running the **PostureSec** application locally using Docker Compose.  
+
+The goal was to successfully bring up the full stack (Frontend, Backend, and PostgreSQL Database) and verify that the application is accessible via the browser.
+
+---
+
+## Prerequisites
+- Docker Desktop installed and running
+- Git installed
+- Stable internet connection
+- Terminal (Git Bash / PowerShell / VS Code Terminal)
+
+---
+
+## Project Used
+- Repository: `PostureSec-DevSecOps-Lab`
+- Local Path:  
+  `C:\Users\LENOVO\OneDrive\Desktop\War Room\PostureSec-DevSecOps-Lab`
+
+---
+
+## Step-by-Step Process
+
+##  Navigate to the Correct Directory
+It is very important to be inside the project folder before running Docker commands.
+
+```bash
+cd "PostureSec-DevSecOps-Lab" 
+
+##  Start the Application. Note This command builds the images and starts all services.
+docker compose up --build
+
+##  Services That Were Successfully Started
+Database, posturesec-db, 5432:5432,Healthy
+Backend, posturesec-backend, 5000,Up
+Frontend, posturesec-frontend, 80 → 8080,Up
+
+##  Verification Commands and Check running containers:
+docker compose ps
+
+
+##  Here are all services defined in the compose file:
+Bash docker compose config --services
+Output:
+db
+backend
+frontend
+
+## Accessing the Application
+Once all containers were running, the application was accessed at:
+URL: http://localhost
+
+##Result  and screenshots @ PostureSec-waarrom local screenshots
+PostureSec homepage loaded successfully
+Welcome message: “Welcome to PostureSec”
+Categories displayed: Threat Intel, Zero Trust, Security Posture
+Sign In button was visible
+
+
+##Challenges Encountered & How They Were Solved
+
+Challenge and Solution
+No configuration file provided: not found, Changed into the correct project directory
+Only database container was running, SO I Re-ran full docker compose up --build
+Uncertainty about which port to use, Confirmed frontend was mapped to port 80
+
+1. Docker Desktop – Running Containers
+
+2. Terminal – Successful docker compose up --build
+
+3. Browser – PostureSec Homepage
+
+4. docker compose ps Output
+
+
+Final Status
+
+Frontend, Backend, and Database were all running successfully
+Application fully accessible at http://localhost
+Database reported as healthy
+Local environment ready for further testing
+
+
+Author
+EMMANUELLA UDEH.
+
+AI DevSecOps Engineering War Room
+
+Date: October 2026.
+
+
+
+
+
+
+
+
+
